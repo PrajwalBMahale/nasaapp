@@ -11,17 +11,16 @@ const Random = ({ route, navigation }: any) => {
     })
 
     useLayoutEffect(() => {
-        axios.get('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=LtfTvRmByg5FTA3b1r4NuRfVJCSUQcYk3Z0Xz7Zs')
-        
+        axios.get('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=leBDTcrPIrYlQHtFhaaTIAE0krtYECqCy4rdedAp')
             .then((response) => { 
-                const arrayid = response.data
-                const randomid = arrayid 
-                console.log(randomid)
+                 const arrId = response.data.near_earth_objects;
+                 const randomid = arrId[Math.floor(Math.random()*arrId.length)]
+                 console.log(randomid)
                 
                 setDetail(randomid)
-            })
+             })
             .catch((error) => {
-                setError(true)
+                setError(true) 
             })
     }, [])
     return (
@@ -33,8 +32,8 @@ const Random = ({ route, navigation }: any) => {
 
         <Text style={{fontSize:20,padding:15, alignSelf: "center"}}>nasa_jpl_url : {Details?.nasa_jpl_url}</Text>
 
-        <Text style={{fontSize:20,padding:15, alignSelf: "center"}}>is_potentially_hazardous_asteroid : {Details?.is_potentially_hazardous_asteroid} </Text>
-    
+        <Text style={{fontSize:20,padding:15, alignSelf: "center"}}>is_potentially_hazardous_asteroid : {Details?.is_potentially_hazardous_asteroid.toString() }  </Text>
+       
     </SafeAreaView>
     );
 };

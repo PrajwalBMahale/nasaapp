@@ -11,7 +11,7 @@ const Details1 = ({ route, navigation }: any) => {
     })
 
     useLayoutEffect(() => {
-        axios.get('https://api.nasa.gov/neo/rest/v1/neo/${input}browse?api_key=LtfTvRmByg5FTA3b1r4NuRfVJCSUQcYk3Z0Xz7Zs')
+        axios.get('https://api.nasa.gov/neo/rest/v1/neo/${input}?api_key=LtfTvRmByg5FTA3b1r4NuRfVJCSUQcYk3Z0Xz7Zs')
             .then((response) => {
                 setCountryDetail(response.data[0])
             })
@@ -28,7 +28,7 @@ const Details1 = ({ route, navigation }: any) => {
 
         <Text style={{fontSize:20,padding:15, alignSelf: "center"}}>nasa_jpl_url : {Details?.nasa_jpl_url}</Text>
 
-        <Text style={{fontSize:20,padding:15, alignSelf: "center"}}>is_potentially_hazardous_asteroid : {Details?.is_potentially_hazardous_asteroid} </Text>
+        <Text style={{fontSize:20,padding:15, alignSelf: "center"}}>is_potentially_hazardous_asteroid : {Details?.is_potentially_hazardous_asteroid.toString() } </Text>
     
     </SafeAreaView>
     );

@@ -39,7 +39,7 @@ const Home = ({ navigation }: any) => {
       mode="outlined"
     />
 
-    <Button disabled={minValueError} style={{backgroundColor:"#6600ff", marginTop:45, borderRadius:5, width:200, justifyContent: "center", alignSelf: "center"}}
+    <Button  style={{backgroundColor:"#6600ff", marginTop:45, borderRadius:5, width:200, justifyContent: "center", alignSelf: "center"}}
      mode="contained" onPress={handleButtonPress}>
     Random Asteroid
   </Button>
